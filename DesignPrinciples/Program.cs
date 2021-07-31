@@ -11,11 +11,12 @@ namespace DesignPrinciples
             Console.WriteLine("***********SOLID PRINCIPLES***********");
             Console.WriteLine("1.Single Responsibilty Principle");
             Console.WriteLine("2.Open Closed Principle");
+            Console.WriteLine("3.Liskov Substitution Principle");
             Console.WriteLine("Enter the option");
             int num = Convert.ToInt32(Console.ReadLine());
             switch (num)
             {
-        case 1:
+          case 1:
               //Single Responsibilty Principle
               var scheduler = new Scheduler();
              //Adding Entires in list
@@ -25,18 +26,31 @@ namespace DesignPrinciples
             //Printing the data using Tostring method
              Console.WriteLine(scheduler.ToString());
             //remove the entry using index
-            scheduler.RemoveEntryAt(2);
-            Console.WriteLine("\nRemoved Successfully");
-            Console.WriteLine("\nAfter remvoing the data\n");
-            Console.WriteLine(scheduler.ToString());
-        break;
-                case 2:
+             scheduler.RemoveEntryAt(2);
+             Console.WriteLine("\nRemoved Successfully");
+             Console.WriteLine("\nAfter remvoing the data\n");
+             Console.WriteLine(scheduler.ToString());
+         break;
+          case 2:
+             RegularSavingAccount regularSaving = new RegularSavingAccount();
+             regularSaving.CalculateInterest();
+             SalarySavingAccount salarySaving = new SalarySavingAccount();
+             salarySaving.CalculateInterest();
+          break;
 
-                    RegularSavingAccount regularSaving = new RegularSavingAccount();
-                    regularSaving.CalculateInterest();
-                    SalarySavingAccount salarySaving = new SalarySavingAccount();
-                    salarySaving.CalculateInterest();
-                    break;
+           case 3:
+                    //LISKOV SUBSTITUITION PRINCIPLE
+             //Creting a instance for admindatafile class using interface
+             IFileWriter fileWriter = new AdminDataFile();
+             fileWriter.WriteFile(@"C:\Users\Radhika\source\repos\DesignPrinciples\AdminData.txt");
+
+             IFileReader fileReader = new AdminDataFile();
+             fileReader.ReadFile(@"C:\Users\Radhika\source\repos\DesignPrinciples\AdminData.txt");
+
+            //Creting a instance for regulardatafile class using interface
+             IFileReader fileReaderR = new RegulaDataFile();
+             fileReaderR.ReadFile(@"C:\Users\Radhika\source\repos\DesignPrinciples\RegularData.txt");
+           break;
         }
 
         }
