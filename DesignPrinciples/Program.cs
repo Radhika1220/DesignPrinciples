@@ -12,6 +12,7 @@ namespace DesignPrinciples
             Console.WriteLine("1.Single Responsibilty Principle");
             Console.WriteLine("2.Open Closed Principle");
             Console.WriteLine("3.Liskov Substitution Principle");
+            Console.WriteLine("4.Interface Segregation Principle");
             Console.WriteLine("Enter the option");
             int num = Convert.ToInt32(Console.ReadLine());
             switch (num)
@@ -51,6 +52,18 @@ namespace DesignPrinciples
              IFileReader fileReaderR = new RegulaDataFile();
              fileReaderR.ReadFile(@"C:\Users\Radhika\source\repos\DesignPrinciples\RegularData.txt");
            break;
+                case 4:
+                    Console.WriteLine("*******HPLaser*******");
+                    IPrintContent content = new HPLaserJet();
+                    content.PrintContent();
+                    IPrintDuplex printDuplex = new HPLaserJet();
+                    printDuplex.PrintDuplexContent();
+                    Console.WriteLine("*******Cannon*******");
+                    IPrintContent content1 = new Cannon();
+                    content1.PrintContent();
+                    IPhotoCopyContent copyContent = new Cannon();
+                    copyContent.PhotoCopyContent();
+                    break;
         }
 
         }
