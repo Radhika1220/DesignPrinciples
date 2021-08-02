@@ -13,6 +13,7 @@ namespace DesignPrinciples
             Console.WriteLine("2.Open Closed Principle");
             Console.WriteLine("3.Liskov Substitution Principle");
             Console.WriteLine("4.Interface Segregation Principle");
+            Console.WriteLine("5.Dependency Inversion Principle");
             Console.WriteLine("Enter the option");
             int num = Convert.ToInt32(Console.ReadLine());
             switch (num)
@@ -64,7 +65,13 @@ namespace DesignPrinciples
                     IPhotoCopyContent copyContent = new Cannon();
                     copyContent.PhotoCopyContent();
                     break;
-        }
+                case 5:
+                    var employeeDetailsModified = new EmployeeDetailsModified(new SalaryCalculatorModified());
+                    employeeDetailsModified.HourlyRate = 50;
+                    employeeDetailsModified.HoursWorked = 150;
+                    Console.WriteLine($"The Total Pay is {employeeDetailsModified.GetSalary()}");
+                    break;
+            }
 
         }
     }
